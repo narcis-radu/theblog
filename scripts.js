@@ -101,6 +101,44 @@
     PRODUCT: 'product',
   }
 
+  const POST_TEMP = `
+  <div class="post">
+    <div class="hero">
+      <a href="/{{path}}" title="{{{title}}}"><img src="{{hero}}" alt="{{{title}}}"></a>
+      <a href="{{topicUrl}}" class="topic" title="{{{topic}}}">{{{topic}}}</a>
+    </div>
+    <div class="content">
+      <span class="author">
+        <a href="{{authorUrl}}" title="{{{author}}}">{{{author}}}</a>
+      </span>
+      <h2><a href="/{{path}}" title="{{{title}}}">{{{title}}}</a></h2>
+      <span class="teaser">
+        <a href="/{{path}}" title="{{{teaser}}}…">{{{teaser}}}…</a>
+      </span>
+      <span class="date">{{{date}}}</span>
+    </div>
+  </div>
+  `
+
+  const LATEST_STORIES = `
+  <div class="post">
+    <div class="hero">
+      <a href="/{{path}}" title="{{{title}}}"><img src="{{hero}}" alt="{{{title}}}"></a>
+      <a href="{{topicUrl}}" class="topic" title="{{{topic}}}">{{{topic}}}</a>
+    </div>
+    <div class="content">
+      <span class="date">{{{date}}}</span>
+      <h2><a href="/{{path}}" title="{{{title}}}">{{{title}}}</a></h2>
+      <span class="teaser">
+        <a href="/{{path}}" title="{{{teaser}}}…">{{{teaser}}}…</a>
+      </span>
+      <span class="author">
+        <a href="{{authorUrl}}" title="{{{author}}}">{{{author}}}</a>
+      </span>
+    </div>
+  </div>
+  `
+
   function getPageType() {
     const type = /^\/(ms|g)\/(archive\/)?([a-z]*)s\//.exec(window.location.pathname);
     if (type && type.length === 4) {
@@ -136,7 +174,7 @@
       day: '2-digit',
       month: '2-digit',
       year: 'numeric',
-    }),
+    }).replace(/\//g,"-"),
     authorUrl: getLink(TYPE.AUTHOR, item.author),
     topic: item.topics.length > 0 ? item.topics[0] : '',
     topicUrl: item.topics.length > 0 ? getLink(TYPE.TOPIC, item.topics[0]) : '',
@@ -183,24 +221,7 @@
     hitsPerPage = 12,
     facetFilters = [],
     container = '.posts',
-    itemTemplate = `
-    <div class="post">
-      <div class="hero">
-        <a href="/{{path}}" title="{{{title}}}"><img src="{{hero}}" alt="{{{title}}}"></a>
-        <a href="{{topicUrl}}" class="topic" title="{{{topic}}}">{{{topic}}}</a>
-      </div>
-      <div class="content">
-        <span class="author">
-          <a href="{{authorUrl}}" title="{{{author}}}">{{{author}}}</a>
-        </span>
-        <h2><a href="/{{path}}" title="{{{title}}}">{{{title}}}</a></h2>
-        <span class="teaser">
-          <a href="/{{path}}" title="{{{teaser}}}…">{{{teaser}}}…</a>
-        </span>
-        <span class="date">{{{date}}}</span>
-      </div>
-    </div>
-    `,
+    itemTemplate = POST_TEMP,
     emptyTemplate = 'There are no articles yet',
     transformer = itemTransformer,
   }) {
@@ -248,24 +269,7 @@
     setupSearch({
       hitsPerPage: 13,
       container: '.latest-posts',
-      itemTemplate: `
-      <div class="post">
-        <div class="hero">
-          <a href="/{{path}}" title="{{{title}}}"><img src="{{hero}}" alt="{{{title}}}"></a>
-          <a href="{{topicUrl}}" class="topic" title="{{{topic}}}">{{{topic}}}</a>
-        </div>
-        <div class="content">
-          <span class="date">{{{date}}}</span>
-          <h2><a href="/{{path}}" title="{{{title}}}">{{{title}}}</a></h2>
-          <span class="teaser">
-            <a href="/{{path}}" title="{{{teaser}}}…">{{{teaser}}}…</a>
-          </span>
-          <span class="author">
-            <a href="{{authorUrl}}" title="{{{author}}}">{{{author}}}</a>
-          </span>
-        </div>
-      </div>
-      `,
+      itemTemplate: LATEST_STORIES,
       transformer: (item) => {
         item = itemTransformer(item); 
         if (item.__position === 1) {

@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 16.77 19.7" class="bookmark-vector">
+<defs>
+<polygon id="book-temp" points="0.5 18.87 0.5 0.5 15.27 0.5 15.27 18.87 7.88 14.91 0.5 18.87">
+</polygon> 
+<clipPath id="book-clip">
+<use xlink:href="#book-temp">
+</use></clipPath>
+</defs> 
+<g clip-path="url(#book-clip)">
+<circle cx="8" cy="8" r="11" transform="scale(0)" class="fill-circle">
+</circle>
+</g> 
+<use xlink:href="#book-temp" points="0.5 18.87 0.5 0.5 15.27 0.5 15.27 18.87 7.88 14.91 0.5 18.87" fill="none" stroke="#000" stroke-miterlimit="10" class="hover-stroke-trans">
+</use>
+</svg>
