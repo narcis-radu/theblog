@@ -27,6 +27,18 @@
   color: #0a0a0a;
 }
 
+main div {
+  text-align: center;
+}
+
+main div * {
+  text-align: left;
+}
+
+.category {
+  text-align: left
+}
+
 .title {
   overflow: hidden;
   background-color: black;
@@ -77,16 +89,7 @@
 
 /* hero caption */
 main div:nth-of-type(2) p:nth-of-type(2) {
-  text-align: right;
-
-  width: 100%;
-  max-width: calc(100% - 60px);
-  margin-top: .625rem;
-  font-style: italic;
-
-  font-size: 1rem;
-  line-height: 1.5;
-
+  text-align: left;
 }
 
 .default img {
@@ -239,11 +242,27 @@ main div:first-of-type {
 
 main {
   display: grid;
-  grid-template-areas: "title"
-                       "image"
+  grid-template-areas: "image" 
+                       "category"
+                       "title"
                        "post"
                        "author"
                        "topics";
+}
+
+main div.category a {
+  text-decoration-line: none;
+  font-weight: bolder;
+  color: #fc1a00;
+  font-family: "adobe-clean", sans-serif;
+}
+
+.category {
+  padding: 1rem, 2rem;
+}
+
+.category {
+  grid-area: category;
 }
 
 main div:first-of-type {
@@ -338,7 +357,7 @@ main div.topics {
   display: inline-block;
 }
 
-.topics a:hover {
+.topics a:not(.category):hover {
   color: #007bff;
 }
 

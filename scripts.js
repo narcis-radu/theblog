@@ -360,6 +360,20 @@
       if (container) {
         container.remove();
       }
+      const captionWrap = document.createElement('div');
+      captionWrap.className = 'default category';
+      if (topics.length >= 1) {
+        const top = topics.pop();
+        const link = document.createElement('a');
+        link.href = getLink(TYPE.TOPIC, top.replace(/\s/gm, '-').toLowerCase());
+        link.title = top;
+        link.innerText = top;
+
+        captionWrap.appendChild(link);
+
+        last.parentNode.insertBefore(captionWrap, last);
+      }
+
       if (topics.length > 0) {
         const topicsWrap = document.createElement('div');
         topicsWrap.className = 'default topics';
