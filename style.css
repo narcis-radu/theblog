@@ -27,18 +27,100 @@
   color: #0a0a0a;
 }
 
-main div {
+/*
+  Styling for Grids
+*/
+main {
+  display: grid;
+  grid-template-areas: 
+    "image" 
+    "category"
+    "title"
+    "author"
+    "products"
+    "post"
+    "topics";
+}
+
+main div.author {
+  display: grid;
+  grid-template-areas: 
+    "authorImg" "authorName"
+    "authorImg" "postDate"
+}
+
+/*
+  Styling for span objects and all descendants
+*/
+.author img {
+  grid-area: authorImg
+}
+
+.author .post-author {
+  grid-area: authorName;
+}
+
+.author .post-date {
+  grid-area: postDate;
+}
+
+/*
+  Styling for divs and div element children
+*/
+
+.default {
+  padding: 1rem 2rem;
+}
+
+main div:nth-of-type(2) {
+  grid-area: image;
+}
+
+.author {
+  grid-area: author;
+}
+
+.products {
+  grid-area: products;
+}
+
+main div.topics {
+  grid-area: topics;
+}
+
+main div:first-of-type {
   text-align: center;
 }
 
-main div * {
-  text-align: left;
+main div:first-of-type {
+  grid-area: title;
+}
+
+/*
+  Styling for link to category
+*/
+main div.category a {
+  text-decoration-line: none;
+  font-weight: bolder;
+  color: #fc1a00;
+  font-family: "adobe-clean", sans-serif;
+}
+
+.category {
+  padding: 1rem, 2rem;
+}
+
+.category {
+  grid-area: category;
 }
 
 .category {
   text-align: left
 }
 
+/*
+  Styling for blog title
+*/
 .title {
   overflow: hidden;
   background-color: black;
@@ -73,9 +155,9 @@ main div * {
   object-fit: cover;
 }
 
-.default {
-  padding: 1rem 2rem;
-}
+/*
+  Styling for images
+*/
 
 .image, .post-page main div:nth-of-type(2) {
   padding: 0;
@@ -87,15 +169,20 @@ main div * {
   width: 100vw;
 }
 
-/* hero caption */
-main div:nth-of-type(2) p:nth-of-type(2) {
-  text-align: left;
-}
-
 .default img {
   max-width: 100%;
 }
 
+/* 
+  Styling for hero caption 
+*/
+main div:nth-of-type(2) p:nth-of-type(2) {
+  text-align: left;
+}
+
+/*
+  Styling for headers
+*/
 h1, h2, h3, h4, h5 {
   font-family: adobe-clean-serif,serif;
 }
@@ -137,6 +224,18 @@ main div:first-of-type h3 {
   line-height: 1.8;
 }
 
+h3 code {
+  font-size: 1em;
+  font-family: inherit;
+  background-color: lightgrey;
+}
+
+
+
+/*
+  Styling for text
+*/
+
 blockquote {
   font-family: adobe-clean-serif,serif;
   font-weight: 700;
@@ -164,12 +263,6 @@ pre {
 
 code {
   font-size: 1.1em;
-}
-
-h3 code {
-  font-size: 1em;
-  font-family: inherit;
-  background-color: lightgrey;
 }
 
 p code,li code {
@@ -235,52 +328,6 @@ button, input[type=button], input[type=submit], input[type=reset] {
   border-radius: 5px;
   padding: 2px 20px;
 }
-
-main div:first-of-type {
-  text-align: center;
-}
-
-main {
-  display: grid;
-  grid-template-areas: "image" 
-                       "category"
-                       "title"
-                       "post"
-                       "author"
-                       "topics";
-}
-
-main div.category a {
-  text-decoration-line: none;
-  font-weight: bolder;
-  color: #fc1a00;
-  font-family: "adobe-clean", sans-serif;
-}
-
-.category {
-  padding: 1rem, 2rem;
-}
-
-.category {
-  grid-area: category;
-}
-
-main div:first-of-type {
-  grid-area: title;
-}
-
-main div:nth-of-type(2) {
-  grid-area: image;
-}
-
-main div.left, main {
-  grid-area: author;
-}
-
-main div.topics {
-  grid-area: topics;
-}
-
 
 .left {
   font-family: "Adobe Clean",sans-serif;

@@ -296,15 +296,21 @@
    */
 
   function fetchAuthor() {
-    const insertInside = getSection(2);
-    if (insertInside) {
-      insertInside.classList.add('left');
-      const r = /^By (.*)\n*(.*)$/gmi.exec(insertInside.innerText);
+    const authorSection = getSection(2);
+    if (authorSection) {
+      const r = /^By (.*)\n*(.*)$/gmi.exec(authorSection.innerText);
       const author = r && r.length > 0 ? r[1] : null;
-      const date = r && r.length > 1 ? r[2] : ''
+      let date = r && r.length > 1 ? r[2] : ''
+
+      /*
+        remove "posted on" text from answer
+      */
+      const dateString = date.split(' ')[2];
+      date = new Date(dateString).toDateString();
+
       if (author) {
         // clear the content of the div and replace by avatar and text
-        insertInside.innerHTML = '';
+        authorSection.innerHTML = '';
         const xhr = new XMLHttpRequest();
         const fileName = author.replace(/\s/gm, '-').toLowerCase();
         const pageURL = getLink(TYPE.AUTHOR, author);
@@ -320,7 +326,7 @@
               const avatarURL = /<img src="(.*?)">/.exec(main)[1];
               const authorDiv = document.createElement('div');
               authorDiv.innerHTML = '<img class="lazyload" data-src="' + avatarURL + '?width=120"> \
-                <span class="post-author">by <a href="' + pageURL + '">' + author + '</a></span> \
+                <span class="post-author"><a href="' + pageURL + '">' + author + '</a></span> \
                 <span class="post-date">' + date + '</span> \
                 ';
               authorDiv.classList.add('author');
@@ -331,7 +337,7 @@
                 p.innerHTML = socialLinks[1];
                 fetchSocialLinks(p, authorDiv);
               }
-              insertInside.prepend(authorDiv);
+              authorSection.appendChild(authorDiv);
             }
           } else {
             console.log('Author not found...', xhr.response);
@@ -371,7 +377,7 @@
 
         captionWrap.appendChild(link);
 
-        last.parentNode.insertBefore(captionWrap, last);
+       last.parentNode.insertBefore(captionWrap, last);
       }
 
       if (topics.length > 0) {
@@ -388,16 +394,14 @@
           topicsWrap.appendChild(btn);
         });
         // topicsWrap.appendChild(btnWrap);
-        last.parentNode.insertBefore(topicsWrap, last);
+       last.parentNode.insertBefore(topicsWrap, last);
       }
     }
   }
 
   function fetchProducts() {
     const last = getSection();
-    const insertInside = getSection(2);
-    if (insertInside) {
-      insertInside.classList.add('left');
+    if (last) {
       let hits = [];
       let products, container;
       Array.from(last.children).forEach((i) => {
@@ -415,7 +419,7 @@
       }
       if (products.length > 0) {
         const productsWrap = document.createElement('div');
-        productsWrap.className = 'products';
+        productsWrap.className = 'default products';
         products.forEach((product) => {
           product = product.trim();
           if (!product) return;
@@ -433,7 +437,7 @@
 
           productsWrap.appendChild(btn);
         });
-        insertInside.appendChild(productsWrap);
+        last.parentNode.insertBefore(productsWrap, last);
       }
     }
   }
