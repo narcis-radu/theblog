@@ -9,12 +9,6 @@
  * OF ANY KIND, either express or implied. See the License for the specific language
  * governing permissions and limitations under the License.
  */
-
- *,
- *:before, 
- *:after {
-   box-sizing: border-box;
-}
  
  body {
   padding: 0;
@@ -44,33 +38,28 @@ main {
 
 main div.author {
   display: grid;
-  grid-template-areas: 
-    "authorImg" "authorName"
-    "authorImg" "postDate"
+  grid-template-areas:
+    "authorImg authorName"
+    "authorImg postDate";
 }
+
 
 /*
   Styling for span objects and all descendants
 */
 .author img {
-  grid-area: authorImg
+  grid-area: authorImg;
 }
 
-.author .post-author {
+.author div[class*="post"] {
   grid-area: authorName;
 }
 
-.author .post-date {
-  grid-area: postDate;
-}
+
 
 /*
   Styling for divs and div element children
 */
-
-.default {
-  padding: 1rem 2rem;
-}
 
 main div:nth-of-type(2) {
   grid-area: image;
@@ -89,11 +78,11 @@ main div.topics {
 }
 
 main div:first-of-type {
-  text-align: center;
+  grid-area: title;
 }
 
-main div:first-of-type {
-  grid-area: title;
+main div.default * {
+  text-align: left;
 }
 
 /*
@@ -107,15 +96,7 @@ main div.category a {
 }
 
 .category {
-  padding: 1rem, 2rem;
-}
-
-.category {
   grid-area: category;
-}
-
-.category {
-  text-align: left
 }
 
 /*
@@ -135,14 +116,12 @@ main div.category a {
 
 .title h1 {
   color: white;
-  text-align: center;
   text-shadow: 0px 0px 6px #000000;
   margin-bottom: 0.1em;
 }
 
 .title h1+p {
   margin-top: 0.1em;
-  text-align: center;
   color: white;
   font-size: 1.5rem;
   font-weight: 300;
@@ -171,13 +150,6 @@ main div.category a {
 
 .default img {
   max-width: 100%;
-}
-
-/* 
-  Styling for hero caption 
-*/
-main div:nth-of-type(2) p:nth-of-type(2) {
-  text-align: left;
 }
 
 /*
@@ -344,38 +316,12 @@ button, input[type=button], input[type=submit], input[type=reset] {
 }
 
 .author .post-author {
-  font-weight: 600;
   display: block;
-}
-
-.author .post-author a {
-  text-decoration: underline;
-  transition: color 350ms;
-  color: #007bff;
-  background-color: transparent;
 }
 
 .author .post-date {
-  letter-spacing: .1em;
-  font-weight: 500;
   text-transform: uppercase;
   display: block;
-}
-
-.topics::before {
-  content: "Topics in this article";
-  display: block;
-  margin-bottom: 15px;
-  color: rgb(10,10,10);
-  text-align: center;
-  text-size-adjust: 100%;
-  text-rendering: optimizeLegibility;
-  font-family: "Adobe Clean",sans-serif;
-  font-size: .75rem;
-  line-height:18px;
-  font-weight: 600;
-  letter-spacing: .02em;
-  user-select: text;
 }
 
 .topics {
@@ -409,18 +355,13 @@ button, input[type=button], input[type=submit], input[type=reset] {
 }
 
 .products::before {
-  content: "Adobe Products in this article";
+  content: "Adobe Products In This Article";
   display: block;
   margin-bottom: 15px;
-  color: rgb(10,10,10);
   text-align: center;
   text-size-adjust: 100%;
   text-rendering: optimizeLegibility;
   font-family: "Adobe Clean",sans-serif;
-  font-size: .75rem;
-  line-height:18px;
-  font-weight: 600;
-  letter-spacing: .02em;
   user-select: text;
   width: 100%;
 }
@@ -750,7 +691,7 @@ button, input[type=button], input[type=submit], input[type=reset] {
   }
 
   main {
-    grid-template-areas: "title title title" 
+    grid-template-areas:  "title title title" 
                           "image image image"
                           "author post ."
                           "topics topics topics";
