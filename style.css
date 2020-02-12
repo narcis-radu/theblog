@@ -11,14 +11,22 @@
  */
  
  body {
-  padding: 0;
-  margin: 0;
   background-color: white;
   font-family: adobe-clean-serif,serif;
   font-weight: 300;
   font-size: 1.125rem;
   line-height: 1.8;
   color: #0a0a0a;
+}
+
+h1 {
+  display: block;
+  font-size: 2em;
+  margin-block-start: 0;
+  margin-block-end: 0;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  font-weight: bold;
 }
 
 /*
@@ -41,8 +49,9 @@ main div.author {
   grid-template-areas:
     "authorImg authorName"
     "authorImg postDate";
+  grid-template-columns: min-content;
+  grid-template-rows: min-content;
 }
-
 
 /*
   Styling for span objects and all descendants
@@ -51,16 +60,19 @@ main div.author {
   grid-area: authorImg;
 }
 
-.author div[class*="post"] {
+.author .post-author {
   grid-area: authorName;
+  align-self: flex-end;
+  justify-self: flex-start;
 }
 
-
+.author .post-date {
+  grid-area: postDate;
+}
 
 /*
   Styling for divs and div element children
 */
-
 main div:nth-of-type(2) {
   grid-area: image;
 }
@@ -110,8 +122,6 @@ main div.category a {
 .title p:first-child {
   font-size: 1rem;
   line-height: 1rem;
-  margin: 0;
-  padding: 0;
 }
 
 .title h1 {
@@ -137,7 +147,6 @@ main div.category a {
 /*
   Styling for images
 */
-
 .image, .post-page main div:nth-of-type(2) {
   padding: 0;
   margin: 0;
@@ -201,8 +210,6 @@ h3 code {
   font-family: inherit;
   background-color: lightgrey;
 }
-
-
 
 /*
   Styling for text
