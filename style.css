@@ -35,7 +35,7 @@ h1 {
 main {
   display: grid;
   grid-template-areas: 
-    "image" 
+    "image"
     "category"
     "title"
     "author"
@@ -49,8 +49,6 @@ main div.author {
   grid-template-areas:
     "authorImg authorName"
     "authorImg postDate";
-  grid-template-columns: min-content;
-  grid-template-rows: min-content;
 }
 
 /*
@@ -102,7 +100,6 @@ main div.default * {
 */
 main div.category a {
   text-decoration-line: none;
-  font-weight: bolder;
   color: #fc1a00;
   font-family: "adobe-clean", sans-serif;
 }
@@ -196,13 +193,8 @@ h4 {
 }
 
 main div:first-of-type h3 {
-  font-size: 0.83rem;
   font-family: "Adobe Clean", sans-serif;
   font-weight: 200;
-  margin-bottom: 30px;
-  max-width: 775px;
-  padding: 0 15px;
-  line-height: 1.8;
 }
 
 h3 code {
@@ -214,7 +206,6 @@ h3 code {
 /*
   Styling for text
 */
-
 blockquote {
   font-family: adobe-clean-serif,serif;
   font-weight: 700;
@@ -317,8 +308,7 @@ button, input[type=button], input[type=submit], input[type=reset] {
 .author img {
   width: 120px;
   height: 120px;
-  border-radius: 50%;
-  margin: auto auto 15px auto;
+  border-radius: 25%;
   display: block;
 }
 
@@ -668,7 +658,7 @@ button, input[type=button], input[type=submit], input[type=reset] {
 
   
   h4 {
-    font-size: 1.75rem;
+    font-size: 1.75rem; 
   }
 
   body {
