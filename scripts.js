@@ -166,6 +166,15 @@
     return svg;
   }
 
+  function getDate(date=new Date().toLocaleDateString()) {
+    const monthNames = ["January", "February", "March", "April", "May", "June",
+    "July", "August", "September", "October", "November", "December"
+    ];  
+    const dateObj = date.split('-');
+    
+    return monthNames[parseInt(dateObj[0])] + " " + dateObj[1] + ", " + dateObj[2];
+  }
+
   function removeHeaderAndFooter () {
     // workaound until the ESI is fixed
     const header = document.querySelector("header");
@@ -299,14 +308,13 @@
     const authorSection = getSection(2);
     if (authorSection) {
       const r = /^By (.*)\n*(.*)$/gmi.exec(authorSection.innerText);
+      const date = /^posted on (.*)\n*(.*)$/gmi.exec(authorSection.innerText)[1];
       const author = r && r.length > 0 ? r[1] : null;
-      let date = r && r.length > 1 ? r[2] : ''
 
       /*
         remove "posted on" text from answer
       */
-      const dateString = date.split(' ')[2];
-      date = new Date(dateString).toDateString();
+      const fullDate = getDate(date);
 
       if (author) {
         // clear the content of the div and replace by avatar and text
@@ -327,7 +335,7 @@
               const authorDiv = document.createElement('div');
               authorDiv.innerHTML = '<img class="lazyload" data-src="' + avatarURL + '"> \
                 <span class="post-author"><a href="' + pageURL + '">' + author + '</a></span> \
-                <span class="post-date">' + date + '</span> \
+                <span class="post-date">' + fullDate + '</span> \
                 ';
               authorDiv.classList.add('author');
               // try to get the author's social links
