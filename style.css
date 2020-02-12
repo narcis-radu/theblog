@@ -320,8 +320,8 @@ button, input[type=button], input[type=submit], input[type=reset] {
 }
 
 .topics {
-  margin: 0 auto 100px auto;
-  text-align:center;
+  text-align: left;
+  display: block;
 }
 
 .topics a {
@@ -340,8 +340,8 @@ button, input[type=button], input[type=submit], input[type=reset] {
   overflow: hidden;
   border: 1px solid #eaeaea;
   border-radius: 6px;
-  margin: 0 15px 10px 0;
-  display: inline-block;
+  display: block;
+  width: max-content;
 }
 
 .topics a:not(.category):hover {
