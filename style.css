@@ -13,9 +13,6 @@
  body {
   background-color: white;
   font-family: adobe-clean-serif,serif;
-  font-weight: 300;
-  font-size: 1.125rem;
-  line-height: 1.8;
   color: #0a0a0a;
 }
 
@@ -49,6 +46,12 @@ main div.author {
   grid-template-areas:
     "authorImg authorName"
     "authorImg postDate";
+  grid-template-columns: min-content;
+  grid-template-rows: min-content;
+}
+
+main div:nth-child(3) div a {
+  color: black;
 }
 
 /*
@@ -93,13 +96,13 @@ main div:first-of-type {
 
 main div.default * {
   text-align: left;
+  text-decoration-line: none;
 }
 
 /*
   Styling for link to category
 */
 main div.category a {
-  text-decoration-line: none;
   color: #fc1a00;
   font-family: "adobe-clean", sans-serif;
 }
@@ -152,10 +155,6 @@ main div.category a {
 
 .image img, main div:nth-of-type(2) img {
   width: 100vw;
-}
-
-.default img {
-  max-width: 100%;
 }
 
 /*
@@ -306,9 +305,9 @@ button, input[type=button], input[type=submit], input[type=reset] {
 }
 
 .author img {
-  width: 120px;
-  height: 120px;
-  border-radius: 25%;
+  width: 60px;
+  height: 60px;
+  border-radius: 75%;
   display: block;
 }
 
@@ -330,7 +329,6 @@ button, input[type=button], input[type=submit], input[type=reset] {
   font-family: source-code-pro,sans-serif;
   letter-spacing: .1em;
   text-transform: uppercase;
-  text-decoration: none;
   line-height: 1;
   color: rgb(10,10,10);
   position: relative;
@@ -519,7 +517,6 @@ button, input[type=button], input[type=submit], input[type=reset] {
 }
 
 .post a {
-  text-decoration:none;
   color: currentColor;
 }
 

@@ -325,7 +325,7 @@
 
               const avatarURL = /<img src="(.*?)">/.exec(main)[1];
               const authorDiv = document.createElement('div');
-              authorDiv.innerHTML = '<img class="lazyload" data-src="' + avatarURL + '> \
+              authorDiv.innerHTML = '<img class="lazyload" data-src="' + avatarURL + '"> \
                 <span class="post-author"><a href="' + pageURL + '">' + author + '</a></span> \
                 <span class="post-date">' + date + '</span> \
                 ';
