@@ -14,6 +14,7 @@
   background-color: white;
   font-family: adobe-clean-serif,serif;
   color: #0a0a0a;
+  margin: 0;
 }
 
 h1 {
@@ -155,6 +156,7 @@ main div.category a {
 
 .image img, main div:nth-of-type(2) img {
   width: 100vw;
+  height: 35vh;
 }
 
 /*
