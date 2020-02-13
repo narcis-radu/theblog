@@ -212,7 +212,7 @@ main div:nth-of-type(2) {
 }
 
 .image img, main div:nth-of-type(2) img, main div:nth-of-type(2) p img {
-  width: 100%
+  width: 100%;
   height: auto;
 }
 
