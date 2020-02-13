@@ -127,6 +127,10 @@ main div.category a {
   text-transform: uppercase;
 }
 
+main div.default p {
+  font-size: x-large;
+}
+
 .category {
   grid-area: category;
   margin-bottom: 0;
