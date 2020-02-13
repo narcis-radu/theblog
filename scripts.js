@@ -539,13 +539,13 @@
     removeHeaderAndFooter();
     addPageTypeAsBodyClass();
     checkConsent();
-    scrani.onload();
     if (isHome) {
       setupHomepage();
     } else if (isPost) {
       fetchAuthor();
       fetchTopics();
       fetchProducts();
+      scrani.onload();
       removeEmptySection();
     } else if (isAuthor) {
       fetchSocialLinks();
