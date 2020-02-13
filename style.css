@@ -16,12 +16,12 @@
    box-sizing: border-box;
 }
 
- body {
+body {
   background-color: white;
   font-family: adobe-clean, "Source Sans Pro", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
 }
 
-body main > div:not(.image):not(:first-of-type):not(.products):not(.category) {
+body main > div:not(.image):not(:first-of-type):not(.products):not(.category):not(:nth-of-type(2)) {
   margin-top: 2.5vh;
   margin-bottom: 2.5vh; 
   margin-left: 3vw;
@@ -30,6 +30,18 @@ body main > div:not(.image):not(:first-of-type):not(.products):not(.category) {
 
 .post-date, .post-author {
   padding-left: .63em;
+}
+
+div:nth-of-type(2) p {
+  display: block;
+  margin-block-start: 0;
+  margin-block-end: 0;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+}
+
+div:nth-of-type(2) p:nth-of-type(2){
+  font-size: small;
 }
 
 h1 {
