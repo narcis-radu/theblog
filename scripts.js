@@ -402,6 +402,8 @@
       }
       if (products.length > 0) {
         const productsWrap = document.createElement('div');
+        const productsImgWrap = document.createElement('div');
+        productsImgWrap.className = 'prod-design';
         productsWrap.className = 'default products';
         products.forEach((product) => {
           product = product.trim();
@@ -418,8 +420,9 @@
 
           btn.appendChild(img);
 
-          productsWrap.appendChild(btn);
+          productsImgWrap.appendChild(btn);
         });
+        productsWrap.appendChild(productsImgWrap);
         last.parentNode.insertBefore(productsWrap, last);
       }
     }

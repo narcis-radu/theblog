@@ -24,8 +24,8 @@
 body main > div:not(.image):not(:first-of-type):not(.products):not(.category) {
   margin-top: 2.5vh;
   margin-bottom: 2.5vh; 
-  margin-left: 5vw;
-  margin-right: 5vw;
+  margin-left: 3vw;
+  margin-right: 3vw;
 }
 
 .post-date, .post-author {
@@ -112,13 +112,13 @@ main div:first-of-type {
 }
 
 main div:first-of-type h1 {
-  margin-left: 5vw;
-  margin-right: 5vw;
+  margin-left: 3vw;
+  margin-right: 3vw;
 }
 
 #engage-expand-embed-win {
-  margin-left: 5vw;
-  margin-right: 5vw;
+  margin-left: 3vw;
+  margin-right: 3vw;
 }
 
 main div.default * {
@@ -133,6 +133,8 @@ main div.category a {
   color: #fc1a00;
   font-family: "adobe-clean", sans-serif;
   text-transform: uppercase;
+  font-size: smaller;
+  font-weight: 600;
 }
 
 main div.default p {
@@ -144,10 +146,10 @@ main div.default p {
 }
 
 .category {
-  margin-top: 3vh;
+  margin-top: 4vh;
   margin-bottom: 1.5vh;
-  margin-left: 5vw;
-  margin-right: 5vw;
+  margin-left: 3vw;
+  margin-right: 3vw;
 }
 
 .title {
@@ -229,8 +231,8 @@ h4 {
 
 main div:first-of-type h3 {
   margin-top: 0;
-  margin-right: 5vw;
-  margin-left: 5vw;
+  margin-right: 3vw;
+  margin-left: 3vw;
   margin-bottom: 5vh;
 }
 
@@ -407,8 +409,8 @@ button, input[type=button], input[type=submit], input[type=reset] {
 
 .products {
   margin-top: 5vh;
-  margin-left: 5vw;
-  margin-right: 5vw;
+  margin-left: 3vw;
+  margin-right: 3vw;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -418,11 +420,18 @@ button, input[type=button], input[type=submit], input[type=reset] {
   font-weight: 600;
 }
 
+.prod-design {
+  width: max-content;
+  height: max-content;
+  align-self: center;
+}
+
 .products a {
   display: inline-block;
+  align-items: center;
+
   margin: 0 .125rem .5rem;
   font-size: .75rem;
-  padding-left: 2em;
 }
 
 .products a img {
