@@ -637,10 +637,6 @@ button, input[type=button], input[type=submit], input[type=reset] {
     font-weight: 300;
   }
 
-  main div:first-of-type h1 {
-    margin-top: 1em;
-  }
-
   main div:first-of-type h3 {
     font-size: 1.4rem;
    line-height: 1.3;
