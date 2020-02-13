@@ -15,8 +15,8 @@
         const scrani = {
 
             // config
-            animations: [
-                {selector: "body>main>div", animation:"eager-appear"},
+            animations: [            
+                //{selector: "body>main>div:not(:first-of-type):not(", animation:"eager-appear"},
                 {selector: "body>main>div>p>img", animation:"wipe"}
             ],
 
@@ -145,6 +145,15 @@
     return svg;
   }
 
+  function getDate(date=new Date().toLocaleDateString()) {
+    const monthNames = ["January", "February", "March", "April", "May", "June",
+    "July", "August", "September", "October", "November", "December"
+    ];  
+    const dateObj = date.split('-');
+    
+    return monthNames[parseInt(dateObj[0])] + " " + dateObj[1] + ", " + dateObj[2];
+  }
+
   function removeHeaderAndFooter () {
     // workaound until the ESI is fixed
     const header = document.querySelector("header");
@@ -270,15 +279,20 @@
    */
 
   function fetchAuthor() {
-    const insertInside = getSection(2);
-    if (insertInside) {
-      insertInside.classList.add('left');
-      const r = /^By (.*)\n*(.*)$/gmi.exec(insertInside.innerText);
+    const authorSection = getSection(2);
+    if (authorSection) {
+      const r = /^By (.*)\n*(.*)$/gmi.exec(authorSection.innerText);
+      const date = /^posted on (.*)\n*(.*)$/gmi.exec(authorSection.innerText)[1];
       const author = r && r.length > 0 ? r[1] : null;
-      const date = r && r.length > 1 ? r[2] : ''
+
+      /*
+        remove "posted on" text from answer
+      */
+      const fullDate = getDate(date);
+
       if (author) {
         // clear the content of the div and replace by avatar and text
-        insertInside.innerHTML = '';
+        authorSection.innerHTML = '';
         const xhr = new XMLHttpRequest();
         const fileName = author.replace(/\s/gm, '-').toLowerCase();
         const pageURL = getLink(TYPE.AUTHOR, author);
@@ -294,9 +308,9 @@
 
               const avatarURL = /<img src="(.*?)">/.exec(main)[1];
               const authorDiv = document.createElement('div');
-              authorDiv.innerHTML = '<img class="lazyload" data-src="' + avatarURL + '?width=120&auto=webp"> \
-                <span class="post-author">by <a href="' + pageURL + '">' + author + '</a></span> \
-                <span class="post-date">' + date + '</span> \
+              authorDiv.innerHTML = '<img class="lazyload" data-src="' + avatarURL + '"> \
+                <span class="post-author"><a href="' + pageURL + '">' + author + '</a></span> \
+                <span class="post-date">' + fullDate + '</span> \
                 ';
               authorDiv.classList.add('author');
               // try to get the author's social links
@@ -306,7 +320,7 @@
                 p.innerHTML = socialLinks[1];
                 fetchSocialLinks(p, authorDiv);
               }
-              insertInside.prepend(authorDiv);
+              authorSection.appendChild(authorDiv);
             }
           } else {
             console.log('Author not found...', xhr.response);
@@ -346,7 +360,7 @@
 
         captionWrap.appendChild(link);
 
-        last.parentNode.insertBefore(captionWrap, last);
+       last.parentNode.insertBefore(captionWrap, last);
       }
 
       if (topics.length > 0) {
@@ -363,16 +377,14 @@
           topicsWrap.appendChild(btn);
         });
         // topicsWrap.appendChild(btnWrap);
-        last.parentNode.insertBefore(topicsWrap, last);
+       last.parentNode.insertBefore(topicsWrap, last);
       }
     }
   }
 
   function fetchProducts() {
     const last = getSection();
-    const insertInside = getSection(2);
-    if (insertInside) {
-      insertInside.classList.add('left');
+    if (last) {
       let hits = [];
       let products, container;
       Array.from(last.children).forEach((i) => {
@@ -390,7 +402,7 @@
       }
       if (products.length > 0) {
         const productsWrap = document.createElement('div');
-        productsWrap.className = 'products';
+        productsWrap.className = 'default products';
         products.forEach((product) => {
           product = product.trim();
           if (!product) return;
@@ -408,7 +420,7 @@
 
           productsWrap.appendChild(btn);
         });
-        insertInside.appendChild(productsWrap);
+        last.parentNode.insertBefore(productsWrap, last);
       }
     }
   }
@@ -502,13 +514,13 @@
     removeHeaderAndFooter();
     addPageTypeAsBodyClass();
     checkConsent();
-    scrani.onload();
     if (isHome) {
       setupHomepage();
     } else if (isPost) {
       fetchAuthor();
       fetchTopics();
       fetchProducts();
+      scrani.onload();
       removeEmptySection();
     } else if (isAuthor) {
       fetchSocialLinks();
