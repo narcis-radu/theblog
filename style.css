@@ -23,8 +23,11 @@
   margin: 0;
 }
 
-body main > div:not(.image):not(:first-of-type):not(.products) {
-  margin: 2.5vmax;
+body main > div:not(.image):not(:first-of-type):not(.products):not(.category) {
+  margin-top: 2.5vh;
+  margin-bottom: 2.5vh; 
+  margin-left: 5vw;
+  margin-right: 5vw;
 }
 
 .post-date, .post-author {
@@ -36,7 +39,6 @@ h1 {
   display: block;
   size: min-content;
   font-size: 2em;
-  margin: 0;
 }
 
 /*
@@ -110,13 +112,13 @@ main div:first-of-type {
 }
 
 main div:first-of-type h1 {
-  margin-left: 2.5vmax;
-  margin-right: 2.5vmax;
+  margin-left: 5vw;
+  margin-right: 5vw;
 }
 
 #engage-expand-embed-win {
-  margin-left: 2.5vmax;
-  margin-right: 2.5vmax;
+  margin-left: 5vw;
+  margin-right: 5vw;
 }
 
 main div.default * {
@@ -139,7 +141,13 @@ main div.default p {
 
 .category {
   grid-area: category;
-  margin-bottom: 0;
+}
+
+.category {
+  margin-top: 5vh;
+  margin-bottom: 2.5vh;
+  margin-left: 5vw;
+  margin-right: 5vw;
 }
 
 .title {
@@ -183,7 +191,7 @@ main div.default p {
 
 .image img, main div:nth-of-type(2) img {
   width: 100vw;
-  height: 35vh;
+  height: 30vh;
 }
 
 /*
@@ -393,14 +401,16 @@ button, input[type=button], input[type=submit], input[type=reset] {
 }
 
 .products {
-  margin-top: 1em;
-  margin-left: 2.5vmax;
-  margin-right: 2.5vmax;
+  margin-top: 5vh;
+  margin-left: 5vw;
+  margin-right: 5vw;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   border-top: 2px solid #eaeaea;
   border-bottom: 2px solid #eaeaea;
+  letter-spacing: 0.1em;
+  font-weight: 600;
 }
 
 .products a {
