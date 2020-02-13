@@ -185,13 +185,13 @@ main div.default p {
 /*
   Styling for images
 */
-.image, .post-page main div:nth-of-type(2) {
+.image img, main div:nth-of-type(2) img, main div:nth-of-type(2) p img  {
   padding: 0;
   margin: 0;
   font-size: 0;
 }
 
-.image img, main div:nth-of-type(2) img {
+.image img, main div:nth-of-type(2) img, main div:nth-of-type(2) p img {
   width: 100vw;
   height: 30vh;
 }
