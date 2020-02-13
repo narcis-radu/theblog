@@ -16,7 +16,7 @@
             
             // config
             animations: [            
-                {selector: "body>main>div", animation:"eager-appear"},
+                //{selector: "body>main>div:not(:first-of-type):not(", animation:"eager-appear"},
                 {selector: "body>main>div>p>img", animation:"wipe"}
             ],
 
