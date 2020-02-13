@@ -103,10 +103,14 @@ main div:first-of-type {
   grid-area: title;
 }
 
-main div:first-of-type {
+main div:first-of-type h1 {
   margin-left: 2.5vmax;
   margin-right: 2.5vmax;
-  margin-bottom:2.5vmax;
+}
+
+#engage-expand-embed-win {
+  margin-left: 2.5vmax;
+  margin-right: 2.5vmax;
 }
 
 main div.default * {
@@ -322,6 +326,7 @@ button, input[type=button], input[type=submit], input[type=reset] {
   height: 60px;
   border-radius: 75%;
   display: block;
+  align-self: flex-start;
 }
 
 .author .post-author {
