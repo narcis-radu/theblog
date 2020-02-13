@@ -20,6 +20,11 @@ body {
   margin: 0;
 }
 
+img {
+  width: 100vw;
+  height: auto;
+}
+
 body {
   background-color: white;
   font-family: adobe-clean, "Source Sans Pro", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
@@ -125,6 +130,10 @@ main div.topics {
 
 main div:first-of-type {
   grid-area: title;
+}
+
+main div:nth-of-type(4) {
+  grid-area: post;
 }
 
 main div:first-of-type h1 {
@@ -751,24 +760,62 @@ button, input[type=button], input[type=submit], input[type=reset] {
 }
 
 @media (min-width:900px) {
+  main div:nth-of-type(2) {
+    grid-area: image;
+  }
+  
+  .author {
+    grid-area: author;
+  }
+  
+  .products {
+    grid-area: products;
+  }
+  
+  main div.topics {
+    grid-area: topics;
+  }
+  
+  main div:first-of-type {
+    grid-area: title;
+  }
+  
+  main div:nth-of-type(4) {
+    grid-area: post;
+  }
+
+  .category {
+    grid-area: category;
+  }
+  
   .default {
-    margin: auto;
-    width: 700px;
-    box-sizing: border-box;
+    width: 100%
+  }
+
+  main div:nth-of-type(2) p img {
+    width: auto;
+    height: 100vh;
   }
 
   main div:nth-of-type(2) {
-    width: 100%;
-    height: auto;
+    width: auto;
+    height: 100vh;
   }
 
   main {
-    grid-template-areas:  "title title title" 
-                          "image image image"
-                          "author post ."
-                          "topics topics topics";
+    display:  grid;
+    grid-template-areas:
+      "image    category"
+      "image    title"
+      "products    post"
+      "products post"
+      "author   topics";
+    grid-template-columns: 50% 50%;
+    grid-template-rows: 50% 50%;
+  }
 
-    grid-template-columns: 20% 60% 20%;
+  .products {
+    border: none;
   }
 
   div.default.left {
