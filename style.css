@@ -17,7 +17,7 @@
   margin: 0;
 }
 
-body main > div:not(.image):not(:first-of-type) {
+body main > div:not(.image):not(:first-of-type):not(.products) {
   margin: 2.5vmax;
 }
 
@@ -369,11 +369,13 @@ button, input[type=button], input[type=submit], input[type=reset] {
 }
 
 .products::before {
-  content: "Adobe Products In This Article";
+  content: "ADOBE PRODUCTS IN THIS ARTICLE";
   display: block;
-  margin-bottom: 15px;
+  margin-top: 1em;
+  margin-bottom: 1em;
   text-align: center;
   text-size-adjust: 100%;
+  text-decoration: solid;
   text-rendering: optimizeLegibility;
   font-family: "Adobe Clean",sans-serif;
   user-select: text;
@@ -381,10 +383,14 @@ button, input[type=button], input[type=submit], input[type=reset] {
 }
 
 .products {
-  margin-top: 1.25rem;
+  margin-top: 1em;
+  margin-left: 2.5vmax;
+  margin-right: 2.5vmax;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  border-top: 2px solid #eaeaea;
+  border-bottom: 2px solid #eaeaea;
 }
 
 .products a {
@@ -395,9 +401,10 @@ button, input[type=button], input[type=submit], input[type=reset] {
 .products a img {
   width: 3.125rem;
   height: 3.125rem;
-  max-width: 1.875rem;
-  max-height: 1.875rem;
+  max-width: 25vw;
+  max-height: 25vh;
   margin: 0 .188rem;
+  margin-bottom: 1em;
 }
 
 .social::before {
