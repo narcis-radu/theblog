@@ -588,7 +588,8 @@ button, input[type=button], input[type=submit], input[type=reset] {
 
 .post .content {
   padding: 10px 10px 10px 20px;
-  height: 205px;
+  height: 100%;
+  width: 100%;
   text-align: left;
   display: inline-flex;
   flex-direction: column;
@@ -762,31 +763,31 @@ button, input[type=button], input[type=submit], input[type=reset] {
 
 @media (min-width:900px) {
   main div:nth-of-type(2) {
-    grid-area: image;
+    grid-area: 1 / 1 / 1 / 1;
   }
   
   .author {
-    grid-area: author;
+    grid-area: 1 / 2 /1 /2;
   }
   
   .products {
-    grid-area: products;
+    grid-area: 1 / 1 / 1 / 1;
   }
   
   main div.topics {
-    grid-area: topics;
+    grid-area: 4 / 1 / 4 / 1;
   }
   
   main div:first-of-type {
-    grid-area: title;
+    grid-area: 1 / 2 / 2 / 2;
   }
   
   main div:nth-of-type(4) {
-    grid-area: post;
+    grid-area: 1 / 2 / 2 / 2;
   }
 
   .category {
-    grid-area: category;
+    grid-area: 1 / 2 / 2 / 2;
   }
   
   .default {
@@ -805,14 +806,15 @@ button, input[type=button], input[type=submit], input[type=reset] {
 
   main {
     display:  grid;
+    grid: auto-flow / auto 1fr;
     grid-template-areas:
       "image    category"
       "image    title"
       "products    post"
-      "products post"
+      "post        post"
       "author   topics";
     grid-template-columns: 50% 50%;
-    grid-template-rows: 50% 50%;
+    grid-template-rows: 3%;
   }
 
   .products {
