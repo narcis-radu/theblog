@@ -801,11 +801,6 @@ button, input[type=button], input[type=submit], input[type=reset] {
     grid-template-rows: 3%;
   }
   */
-  
-  .default {
-    width: 100%
-  }
-
   main div:nth-of-type(2) p img {
     width: auto;
   }
