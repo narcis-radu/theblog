@@ -670,8 +670,7 @@ button, input[type=button], input[type=submit], input[type=reset] {
 }
 
 .home-page main li:first-child .hero img {
-  height: 100%;
-  width: auto;
+  height: auto;
 }
 
 .home-page main li:first-child .topic {
