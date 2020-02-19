@@ -545,6 +545,7 @@ button, input[type=button], input[type=submit], input[type=reset] {
   background-color: white;
   font-size: .75rem;
   color: rgb(10,10,10);
+  margin-bottom: 2rem;
   width:256px;
   height: 350px;
   display: inline-block;
