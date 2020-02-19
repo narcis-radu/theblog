@@ -9,11 +9,6 @@
  * OF ANY KIND, either express or implied. See the License for the specific language
  * governing permissions and limitations under the License.
 */
-
-@import "theblog_900.css";
-@import "theblog_600.css";
-@import "theblog_homepage.css";
-
  *,
  *:before,
  *:after {
@@ -628,16 +623,226 @@ button, input[type=button], input[type=submit], input[type=reset] {
   flex-grow: 1;
 }
 
-
-
 .post .date {
   align-self: flex-end;
 }
 
+/* HOMEPAGE DESIGNS */
+.home-page main li:first-child .teaser {
+  color: currentColor;
+  font-weight: normal;
+  font-size: 1.1rem;
+}
+.home-page main .default {
+  width:100vw;
+  padding: 0;
+}
+.home-page main div:first-of-type {
+  text-align: left;
+}
 
+.home-page .latest-posts {
+  padding: 0 0 2rem 0;
+}
 
+.home-page .latest-posts::before {
+  display: none;
+}
 
+.home-page main .ais-Hits ol,
+.home-page main .ais-Hits ul {
+  justify-content: center;
+}
+.home-page main li:first-child .post {
+  width: 100vw;
+  margin: 0 0 30px 0;
+  display: flex;
+  font-size: 1rem;
+  flex-direction: column;
+  height: unset;
+}
 
+.home-page main li:first-child .hero {
+  width: 100vw;
+  height: 30vh;
+}
 
+.home-page main li:first-child .hero img {
+  height: 100%;
+  width: auto;
+}
 
+.home-page main li:first-child .topic {
+  display: none;
+}
+.home-page main li:first-child h2 {
+  font-size: 2.25rem;
+}
 
+.home-page main li:first-child .content {
+  padding: 1.5rem 1.5rem 1.5rem 3rem;
+  width: 100vw;
+  box-sizing: border-box;
+  height: unset;
+}
+
+.home-page main li:first-child span {
+  font-weight: 600;
+}
+
+.home-page main li:first-child::after {
+  content: "Latest Stories";
+  display: block;
+  margin: 1rem auto 2rem;
+  color: rgb(153,153,153);
+  text-align: center;
+  text-size-adjust: 100%;
+  text-rendering: optimizeLegibility;
+  font-family: "Adobe Clean",sans-serif;
+  font-size: 1.5rem;
+  line-height:18px;
+  font-weight: 600;
+  user-select: text;
+}
+
+.hide-all {
+  display: none;
+}
+
+/*600*/
+@media (min-width:600px) {
+  h1 {
+    font-size: 2.8rem;
+  }
+
+  .title h1+p {
+    font-size: 2rem;
+    font-weight: 300;
+  }
+
+  main div:first-of-type h3 {
+    font-size: 1.4rem;
+    line-height: 1.3;
+  }
+
+  h2 {
+    font-size: 2.3rem;
+  }
+
+  h3 {
+    font-size: 1.8rem;
+  }
+
+  .home-page main .post {
+    margin: 0 2rem 2rem 0;
+  }
+
+  h4 {
+    font-size: 1.75rem; 
+  }
+
+  body {
+    font-size: 1.25rem;
+  }
+
+  blockquote {
+    font-size: 1.2rem;
+    line-height: 1.7;
+  }
+
+  .home-page main li:first-child .hero {
+    height: unset;
+  }
+}
+
+/*900*/
+@media (min-width:900px) {
+  /* New XD Design Work
+  main div:nth-of-type(2) {
+    grid-area: 1 / 1 / 1 / 1;
+  }
+  
+  .author {
+    grid-area: 1 / 2 /1 /2;
+  }
+  
+  .products {
+    grid-area: 1 / 1 / 1 / 1;
+  }
+  
+  main div.topics {
+    grid-area: 4 / 1 / 4 / 1;
+  }
+  
+  main div:first-of-type {
+    grid-area: 1 / 2 / 2 / 2;
+  }
+  
+  main div:nth-of-type(4) {
+    grid-area: 1 / 2 / 2 / 2;
+  }
+
+  .category {
+    grid-area: 1 / 2 / 2 / 2;
+  }
+  
+  main {
+    display:  grid;
+    grid: auto-flow / auto 1fr;
+    grid-template-areas:
+      "image    category"
+      "image    title"
+      "products    post"
+      "post        post"
+      "author   topics";
+    grid-template-columns: 50% 50%;
+    grid-template-rows: 3%;
+  }
+  */
+  
+  .default {
+    width: 100%
+  }
+
+  main div:nth-of-type(2) p img {
+    width: auto;
+    height: 100vh;
+  }
+
+  main div:nth-of-type(2) {
+    width: auto;
+    height: 100vh;
+  }
+
+  .home-page main .post {
+    margin: 0 2rem 2rem 0;
+  }
+
+  .products {
+    border: none;
+  }
+
+  div.default.left {
+    margin-top: 30px;
+    margin-right: 0;
+    width: unset;
+    align-self: start;
+  }
+
+  .home-page .latest-posts {
+    background-color: white;
+  }
+
+  .home-page main li:first-child .post {
+    flex-direction: row;
+  }
+
+  .home-page main li:first-child .hero {
+    width: 60vw;
+  }
+
+  .home-page main li:first-child .content {
+    padding: 1.5rem 1.5rem 1.5rem 3rem;
+    width: 40vw;
+  }
+}
