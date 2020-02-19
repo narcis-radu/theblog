@@ -23,7 +23,6 @@ body {
 img {
   width: 100%;
   height: auto;
-  
 }
 
 body {
@@ -544,8 +543,7 @@ button, input[type=button], input[type=submit], input[type=reset] {
   font-size: .75rem;
   color: rgb(10,10,10);
   width:256px;
-  height: 350px;
-  margin: 0 0 15px 15px;
+  height: fit-content;
   display: inline-block;
   text-align: left;
 }
@@ -656,7 +654,7 @@ button, input[type=button], input[type=submit], input[type=reset] {
 }
 
 .home-page main .post {
-  margin: 0 2rem 2rem 0;
+  margin: 0 0 2rem 0;
 }
 
 .home-page main li:first-child .post {
@@ -815,6 +813,10 @@ button, input[type=button], input[type=submit], input[type=reset] {
       "author   topics";
     grid-template-columns: 50% 50%;
     grid-template-rows: 3%;
+  }
+
+  .home-page main .post {
+    margin: 0 2rem 2rem 0;
   }
 
   .products {
