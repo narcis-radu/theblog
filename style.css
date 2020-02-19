@@ -532,10 +532,13 @@ button, input[type=button], input[type=submit], input[type=reset] {
 .ais-Hits ol,
 .ais-Hits ul {
   list-style-type: none;
-  padding: 0;
-  margin: 0;
   display: flex;
   flex-flow: row wrap;
+}
+
+.ais-Hits-list {
+  padding: 0;
+  margin: 0;
 }
 
 .post {
@@ -543,9 +546,9 @@ button, input[type=button], input[type=submit], input[type=reset] {
   font-size: .75rem;
   color: rgb(10,10,10);
   width:256px;
-  height: fit-content;
+  height: 350px;
   display: inline-block;
-  text-align: left;
+  text-overflow: clip;
 }
 
 .post .hero {
@@ -586,10 +589,8 @@ button, input[type=button], input[type=submit], input[type=reset] {
 
 .post .content {
   padding: 10px 10px 10px 20px;
-  height: 100%;
+  height: fit-content;
   width: 100%;
-  text-align: left;
-  display: inline-flex;
   flex-direction: column;
   box-sizing: border-box;
   overflow: hidden;
@@ -651,10 +652,6 @@ button, input[type=button], input[type=submit], input[type=reset] {
 .home-page main .ais-Hits ol,
 .home-page main .ais-Hits ul {
   justify-content: center;
-}
-
-.home-page main .post {
-  margin: 0 0 2rem 0;
 }
 
 .home-page main li:first-child .post {
@@ -738,7 +735,9 @@ button, input[type=button], input[type=submit], input[type=reset] {
     font-size: 1.8rem;
   }
 
-
+  .home-page main .post {
+    margin: 0 2rem 2rem 0;
+  }
 
   h4 {
     font-size: 1.75rem; 
