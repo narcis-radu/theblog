@@ -441,6 +441,7 @@ button, input[type=button], input[type=submit], input[type=reset] {
   border-bottom: 2px solid #eaeaea;
   letter-spacing: 0.1em;
   font-weight: 600;
+  width: 100%;
 }
 
 .prod-design {
