@@ -1,4 +1,5 @@
 @media (min-width:900px) {
+  /*
   main div:nth-of-type(2) {
     grid-area: 1 / 1 / 1 / 1;
   }
@@ -26,6 +27,7 @@
   .category {
     grid-area: 1 / 2 / 2 / 2;
   }
+  */
   
   .default {
     width: 100%
@@ -41,6 +43,7 @@
     height: 100vh;
   }
 
+  /*
   main {
     display:  grid;
     grid: auto-flow / auto 1fr;
@@ -53,6 +56,7 @@
     grid-template-columns: 50% 50%;
     grid-template-rows: 3%;
   }
+  */
 
   .home-page main .post {
     margin: 0 2rem 2rem 0;
