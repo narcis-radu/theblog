@@ -592,8 +592,8 @@ button, input[type=button], input[type=submit], input[type=reset] {
 
 .post .content {
   padding: 10px 10px 10px 20px;
-  height: fit-content;
-  width: 205px;
+  height: 205px;
+  width: auto;
   display: inline-flex;
   flex-direction: column;
   box-sizing: border-box;
