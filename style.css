@@ -634,8 +634,6 @@ button, input[type=button], input[type=submit], input[type=reset] {
   font-size: 1.1rem;
 }
 .home-page main .default {
-  width:100vw;
-  padding: 0;
 }
 .home-page main div:first-of-type {
   text-align: left;
@@ -806,12 +804,10 @@ button, input[type=button], input[type=submit], input[type=reset] {
 
   main div:nth-of-type(2) p img {
     width: auto;
-    height: 100vh;
   }
 
   main div:nth-of-type(2) {
     width: auto;
-    height: 100vh;
   }
 
   .home-page main .post {
